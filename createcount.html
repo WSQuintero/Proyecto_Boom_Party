@@ -1,40 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="../css/normalize.css" />
-		<link rel="stylesheet" href="../css/createAcount.css" />
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-		<title>Document</title>
-	</head>
-	<body>
-		<main>
-			<div class="container__login">
-				<h1 class="main__tittle__login">Crear cuenta</h1>
-				<form action="">
-					<label for="nombre" class="label"
-						>Nombre:
-						<input type="text" class="input" id="nombre" name="nombre" />
-					</label>
-					<label for="usuario" class="label"
-						>Usuario:
-						<input type="text" class="input" id="usuario" name="usuario" />
-					</label>
-					<label for="password" class="label"
-						>Password:
-						<input type="password" class="input" id="password" name="password" />
-					</label>
-					<label for="repeat" class="label"
-						>Repeat Password:
-						<input type="password" class="input" id="repeat" name="repeat" />
-					</label>
-					<div class="div__error"></div>
-					<button type="submit" class="buton__send">Crear</button>
-				</form>
-			</div>
-		</main>
-		<script src="./createAcount.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/createAcount.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <div class="container__login">
+        <h1 class="main__tittle__login">Crear cuenta</h1>
+        <form action="">
+          <label for="nombre" class="label"
+            >Nombre:
+            <input type="text" class="input" id="nombre" name="nombre" />
+          </label>
+          <label for="usuario" class="label"
+            >Usuario:
+            <input type="text" class="input" id="usuario" name="usuario" />
+          </label>
+          <label for="password" class="label"
+            >Password:
+            <input
+              type="password"
+              class="input"
+              id="password"
+              name="password"
+            />
+          </label>
+          <label for="repeat" class="label"
+            >Repeat Password:
+            <input type="password" class="input" id="repeat" name="repeat" />
+          </label>
+          <div class="div__error"></div>
+          <button type="submit" class="buton__send">Crear</button>
+        </form>
+        <span class="error"> </span>
+      </div>
+    </main>
+    <script src="./createAcount.js"></script>
+  </body>
 </html>

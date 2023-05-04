@@ -109,6 +109,11 @@ width: 65%;
 	height: 30px;
 	cursor: pointer;
 }
+.error{
+	margin-top: 10px;
+	color: red;
+	font-weight: 700;
+}
 
 @media (max-width: 650px) {
   main{
