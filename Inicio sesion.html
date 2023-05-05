@@ -20,41 +20,6 @@
       <a href="Registrarse.html">¿No tienes una cuenta? Registrate aquí</a>
     </form>
 
-    <script>
-      /* Aqui agrego un objeto de ejemplo y lo convierto a string para guardarlo en el local storage*/
-      const objeto = {
-        username: "Juan",
-        password: "25",
-      };
-      const objetoJSON = JSON.stringify(objeto);
-      localStorage.setItem("miObjeto", objetoJSON);
-
-      /*****************************************************************************************/
-
-      const username = document.getElementById("username");
-      const password = document.getElementById("password");
-      const button = document.getElementById("button");
-
-      /* Evento cuando se hace click en el boton */
-      button.addEventListener("click", (e) => {
-        e.preventDefault();
-        const usuario = {
-          username: username.value,
-          password: password.value,
-        };
-
-        /* Aqui saco el objeto(string) del local storage y lo vuelvo a convertir a un objeto*/
-        const usuarioJSON = JSON.parse(localStorage.getItem("miObjeto"));
-
-        if (
-          usuario.username === usuarioJSON.username &&
-          usuario.password === usuarioJSON.password
-        ) {
-          window.location.replace("Pagina Principal.html");
-        } else {
-          alert("Usuario o contraseña incorrectos");
-        }
-      });
-    </script>
+    <script src="login.js"></script>
   </body>
 </html>
