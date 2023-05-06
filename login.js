@@ -1,49 +1,47 @@
-let mensajeError = "";
-let usuarioNoRegistrado = true;
-// const usuariosAlmacenados = JSON.parse(localStorage.getItem("baseUsuarios"));
-const usuariosAlmacenados=[{
-  user:usuario.user,
-  pass:usuario.pass
-}]
+let mensajeError = ''
+const usuariosAlmacenados = JSON.parse(localStorage.getItem('baseUsuarios')) || []
+const username = document.querySelector('#username')
+const password = document.querySelector('#password')
+const button = document.querySelector('#button')
 
-const usuario = {
-  user: username.value,
-  pass: password.value,
-};
+button.addEventListener('click', findUser)
 
-button.addEventListener("click", (e) => {
-  e.preventDefault();
+function findUser (e) {
+  e.preventDefault()
+  const usuario = {
+    user: username.value,
+    pass: password.value
+  }
 
   const usuarioEncontrado = usuariosAlmacenados.find(
     (usuarioActual) => usuario.user === usuarioActual.user
-  );
+  )
 
-  validateUser(usuarioEncontrado);
-  showError(mensajeError);
-});
+  validateUser(usuarioEncontrado, usuario)
+  showError(mensajeError)
+}
 
-function validateUser(usuarioEncontrado) {
+function validateUser (usuarioEncontrado, usuario) {
   if (usuarioEncontrado) {
-    usuarioNoRegistrado = false;
-    if (Number(usuario.pass) === usuarioEncontrado.pass) {
-      window.location.replace("Pagina Principal.html");
+    if (usuario.pass === usuarioEncontrado.pass) {
+      window.location.replace('Pagina Principal.html')
     } else {
-      mensajeError = "Contraseña incorrecta";
+      mensajeError = 'Contraseña incorrecta'
     }
   } else {
-    mensajeError = "Usuario no registrado";
+    mensajeError = 'Usuario no registrado'
   }
 }
 
-function showError(mensajeError) {
+function showError (mensajeError) {
   if (mensajeError) {
-    const errorMensaje = document.createElement("p");
-    errorMensaje.textContent = mensajeError;
-    const mensajesError = document.querySelectorAll(".mensaje-error");
+    const errorMensaje = document.createElement('p')
+    errorMensaje.textContent = mensajeError
+    const mensajesError = document.querySelectorAll('.mensaje-error')
     if (mensajesError.length > 0) {
-      mensajesError[0].remove();
+      mensajesError[0].remove()
     }
-    document.querySelector("form").appendChild(errorMensaje);
-    errorMensaje.classList.add("mensaje-error");
+    document.querySelector('form').appendChild(errorMensaje)
+    errorMensaje.classList.add('mensaje-error')
   }
 }
