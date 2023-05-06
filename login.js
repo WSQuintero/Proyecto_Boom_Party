@@ -4,43 +4,35 @@ const usuariosAlmacenados = [
 ];
 
 // const usuariosAlmacenados = JSON.parse(localStorage.getItem("baseUsuarios"));
-
 const error = document.querySelector(".error");
-  let usuarioEncontrado = false;
-  let contrasenaIncorrecta = false;
-  let usuarioNoRegistrado = true;
-  let mensajeError;
+
 
 button.addEventListener("click", (e) => {
   e.preventDefault();
-  const usuario = {
-    user: username.value,
-    pass: password.value,
-  };
+  let usuario = username.value;
+  let pass = password.value;
+  let contrasenaIncorrecta = false;
 
+  /* el método find lo puedes utilizar para encontrar un 
+  elemento en especifico en un array dependiendo de la condición que utilices-
+  
+  Recibe otra función donde especificas las condiciones que debe tener el elemento a devolver*/
 
-
-
-  const usario = usuariosAlmacenados.find((user) => {
-    console.log(typeof usuario.pass);
-    if (user.user === usuario.user) {
-      if(user.pass === Number(usuario.pass)){
+  const userTrue = usuariosAlmacenados.find((user) => {
+    if (user.user === usuario) {
+      if (user.pass === Number(pass)) {
         return user;
-      }else{
+      } else {
         contrasenaIncorrecta = true;
       }
-      
     }
   });
-  console.log(usario);
 
-  if (usario !== undefined) {
-    usuarioEncontrado = true;
-    alert("Entraste al login")
+  if (userTrue !== undefined) {
+    window.location.href ="paginaPrincipal.html"
   } else if (contrasenaIncorrecta) {
     error.innerText = "Contraseña incorrecta";
   } else {
     error.innerText = "Usuario no encontrado";
   }
-
 });
