@@ -2,6 +2,9 @@ const usuariosAlmacenados = [
   { user: "santiago", pass: 1234 },
   { user: "santiago2", pass: 12345 },
 ];
+
+// const usuariosAlmacenados = JSON.parse(localStorage.getItem("baseUsuarios"));
+
 const error = document.querySelector(".error");
   let usuarioEncontrado = false;
   let contrasenaIncorrecta = false;
@@ -16,21 +19,7 @@ button.addEventListener("click", (e) => {
   };
 
 
-  // const usuariosAlmacenados = JSON.parse(localStorage.getItem("baseUsuarios"));
 
-  /* Se recorre el array y se define cuales datos se encuentran y cuales no */
-  // for (let i = 0; i < usuariosAlmacenados.length; i++) {
-  //   const usuarioActual = usuariosAlmacenados[i];
-  //   if (usuario.user === usuarioActual.user) {
-  //     usuarioNoRegistrado = false;
-  //     if (usuario.pass === usuarioActual.pass) {
-  //       usuarioEncontrado = true;
-  //       break;
-  //     } else {
-  //       contrasenaIncorrecta = true;
-  //     }
-  //   }
-  // }
 
   const usario = usuariosAlmacenados.find((user) => {
     console.log(typeof usuario.pass);
@@ -54,29 +43,4 @@ button.addEventListener("click", (e) => {
     error.innerText = "Usuario no encontrado";
   }
 
-  /* condiciones para iniciar sesion */
-  // switch (true) {
-  //   case usuarioEncontrado:
-  //     console.log("usario");
-  //     //  window.location.replace("Pagina Principal.html");
-  //     break;
-  //   case contrasenaIncorrecta:
-  //     mensajeError = "Contraseña incorrecta";
-  //     break;
-  //   case usuarioNoRegistrado:
-  //     mensajeError = "Usuario no registrado";
-  //     break;
-  // }
-
-  // /* Mensaje cuando los datos no son correctos */
-  // if (mensajeError) {
-  //   const errorMensaje = document.createElement("p");
-  //   errorMensaje.innerText = mensajeError;
-  //   const mensajesError = document.querySelectorAll(".mensaje-error");
-  //   if (mensajesError.length > 0) {
-  //     mensajesError[0].remove();
-  //   }
-  //   document.querySelector("form").appendChild(errorMensaje);
-  //   errorMensaje.classList.add("mensaje-error");
-  // }
 });
