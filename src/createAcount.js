@@ -14,28 +14,34 @@ class Usuario {
     this.pass = pass
   }
 
-  // Aquí se crea un método estático para poder crear usuario
-
   static createNewUser () {
     const newUser = new Usuario({
       name: nombre.value,
       user: usuario.value,
-      pass: password.value
+      pass: String(password.value)
     })
 
     return newUser
   }
 
-  // Aquí se crea un método estático para poder agregar usuario
+  static addUserInLocalStorage () {
+    const usersInLocalStorage = JSON.stringify(baseUsuarios)
+    localStorage.setItem('baseUsuarios', usersInLocalStorage)
+    alert('Usuario agregado exitosamente')
+  }
+
+  static addBorderError (inputs) {
+    inputs.forEach((input) => {
+      input.style.border = '1px solid red'
+    })
+  }
 
   static addNewUser (event) {
     if (Array.from(inputs).every((input) => input.value !== '')) {
       if (password.value === repeat.value) {
         if (baseUsuarios.length === 0) {
           baseUsuarios.push(Usuario.createNewUser())
-          const usersInLocalStorage = JSON.stringify(baseUsuarios)
-          localStorage.setItem('baseUsuarios', usersInLocalStorage)
-          alert('Usuario agregado exitosamente')
+          Usuario.addUserInLocalStorage()
         } else {
           const userView = baseUsuarios.find(
             (user) => user.user === usuario.value
@@ -43,27 +49,21 @@ class Usuario {
           if (userView !== undefined) {
             event.preventDefault()
             spanError.innerText = 'El usuario ya se encuentra registrado'
-            usuario.style.border = '1px solid red'
+            Usuario.addBorderError([usuario])
           } else {
             baseUsuarios.push(Usuario.createNewUser())
-            const usersInLocalStorage = JSON.stringify(baseUsuarios)
-            localStorage.setItem('baseUsuarios', usersInLocalStorage)
-            alert('Usuario agregado exitosamente')
+            Usuario.addUserInLocalStorage()
           }
         }
       } else {
         event.preventDefault()
         spanError.innerText = 'Las contraseñas deben coincidir'
-        password.style.border = '1px solid red'
-        repeat.style.border = '1px solid red'
+        Usuario.addBorderError([password, repeat])
       }
     } else {
       event.preventDefault()
       spanError.innerText = 'Todos los campos deben estar diligenciados'
-      usuario.style.border = '1px solid red'
-      nombre.style.border = '1px solid red'
-      password.style.border = '1px solid red'
-      repeat.style.border = '1px solid red'
+      Usuario.addBorderError([usuario, nombre, password, repeat])
     }
   }
 }
