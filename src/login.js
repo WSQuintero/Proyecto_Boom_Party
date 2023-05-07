@@ -24,7 +24,7 @@ function findUser (e) {
 function validateUser (usuarioEncontrado, usuario) {
   if (usuarioEncontrado) {
     if (usuario.pass === usuarioEncontrado.pass) {
-      window.location.replace('PaginaPrincipal.html')
+      window.location.replace('../pages/paginaPrincipal.html')
     } else {
       mensajeError = 'Contraseña incorrecta'
     }
