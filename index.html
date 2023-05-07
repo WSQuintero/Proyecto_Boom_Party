@@ -4,18 +4,37 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/normalize.css" />
+    <link rel="stylesheet" href="./styles/createAcount.css" />
     <title>Iniciar sesión</title>
   </head>
   <body>
-    <h1>Iniciar sesión</h1>
-    <form>
-      <label>Nombre de usuario:</label>
-      <input type="text" id="username" name="username" /><br />
-      <label>Contraseña:</label>
-      <input type="password" id="password" name="password" /><br />
-      <button type="submit" id="button">Iniciar sesión</button><br />
-      <a href="./pages/createacount.html">¿No tienes una cuenta? Registrate aquí</a>
-    </form>
-    <script src="login.js"></script>
+    <main>
+      <div class="container__login">
+        <h1 class="main__tittle__login">Iniciar sesión</h1>
+        <form>
+          <label class="label">Usuario:
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="input"
+            />
+          </label>
+          <label class="label">Contraseña: <input
+            type="password"
+            id="password"
+            name="password"
+            autocomplete="on"
+            class="input"
+          /></label>
+          <button type="submit" id="button" class="buton__send">
+            Iniciar sesión</button>
+          <a href="./pages/createacount.html" class="link__create-acount"
+            >¿No tienes una cuenta? Registrate aquí</a>
+        </form>
+      </div>
+    </main>
+    <script src="./src/login.js"></script>
   </body>
 </html>

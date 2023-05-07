@@ -35,13 +35,15 @@ function validateUser (usuarioEncontrado, usuario) {
 
 function showError (mensajeError) {
   if (mensajeError) {
-    const errorMensaje = document.createElement('p')
+    const errorMensaje = document.createElement('span')
     errorMensaje.textContent = mensajeError
+    errorMensaje.classList.add('mensaje-error')
+    errorMensaje.classList.add('error')
+
     const mensajesError = document.querySelectorAll('.mensaje-error')
     if (mensajesError.length > 0) {
       mensajesError[0].remove()
     }
     document.querySelector('form').appendChild(errorMensaje)
-    errorMensaje.classList.add('mensaje-error')
   }
 }

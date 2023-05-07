@@ -40,8 +40,10 @@ class Usuario {
     if (Array.from(inputs).every((input) => input.value !== '')) {
       if (password.value === repeat.value) {
         if (baseUsuarios.length === 0) {
+          event.preventDefault()
           baseUsuarios.push(Usuario.createNewUser())
           Usuario.addUserInLocalStorage()
+          window.location.replace('/index.html')
         } else {
           const userView = baseUsuarios.find(
             (user) => user.user === usuario.value
@@ -51,8 +53,10 @@ class Usuario {
             spanError.innerText = 'El usuario ya se encuentra registrado'
             Usuario.addBorderError([usuario])
           } else {
+            event.preventDefault()
             baseUsuarios.push(Usuario.createNewUser())
             Usuario.addUserInLocalStorage()
+            window.location.replace('/index.html')
           }
         }
       } else {

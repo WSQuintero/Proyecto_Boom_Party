@@ -62,10 +62,11 @@ form {
 }
 
 .buton__send {
-	width: 10rem;
+	width: auto;
 	height: 3rem;
 	padding: 1rem;
 	margin: 0 auto;
+	margin-top: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -79,42 +80,21 @@ form {
 .buton__send:hover {
 	background-color: var(--color--hover);
 }
-.span__signup {
-	width: 70%;
-	display: flex;
-	justify-content: space-around;
-	text-align: center;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
-}
-.a__signup {
-	color: var(--color-fondo);
-	font-weight: 700;
-	text-decoration: none;
-}
-.div__error {
-	color: red;
-}
 
 .label input{
 width: 65%;
-}
-.radio{
-	margin-top: 20px;
-	display: flex;
-	justify-content: space-between;
-}
-.radio input{
-	width: 30px;
-	height: 30px;
-	cursor: pointer;
 }
 .error{
 	margin-top: 10px;
 	color: red;
 	font-weight: 700;
+	text-align: center;
 }
-
+.link__create-acount{
+	margin-top: 20px;
+	text-align: center;
+	text-decoration: none;
+}
 @media (max-width: 650px) {
   main{
     justify-content: center;
