@@ -43,7 +43,7 @@ class Usuario {
           event.preventDefault()
           baseUsuarios.push(Usuario.createNewUser())
           Usuario.addUserInLocalStorage()
-          window.location.replace('/index.html')
+          window.location.replace('../index.html')
         } else {
           const userView = baseUsuarios.find(
             (user) => user.user === usuario.value
@@ -56,7 +56,7 @@ class Usuario {
             event.preventDefault()
             baseUsuarios.push(Usuario.createNewUser())
             Usuario.addUserInLocalStorage()
-            window.location.replace('/index.html')
+            window.location.replace('../index.html')
           }
         }
       } else {
